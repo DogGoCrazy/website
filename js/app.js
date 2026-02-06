@@ -474,7 +474,7 @@ yesBtn.addEventListener('click', function() {
 
   // Fade out BGM, fade in victory song
   fadeBgmOut();
-  yesSong.play();
+  yesSong.play().catch(() => {}); // Ignore autoplay errors
   let yesSongFadeIn = setInterval(() => {
     if (yesSong.volume < 0.3) {
       yesSong.volume += 0.02;
