@@ -514,9 +514,9 @@ yesBtn.addEventListener('click', function() {
   spawnFireworks();
 
   // Create exit button
-  const exitBtn = document.createElement('button');
+  const exitBtn = document.createElement('img');
+  exitBtn.src = 'assets/exit-btn.png';
   exitBtn.className = 'exit-btn';
-  exitBtn.innerHTML = '←';
   exitBtn.title = 'Return to main screen';
   document.body.appendChild(exitBtn);
 
