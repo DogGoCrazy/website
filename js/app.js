@@ -1,3 +1,16 @@
+// Asset paths (relative to index.html)
+const song1Url = 'assets/song1.mp3';
+const song2Url = 'assets/song2.mp3';
+const yesSongUrl = 'assets/yes-song.mp3';
+const walkSoundUrl = 'assets/walk.wav';
+const stompSoundUrl = 'assets/stomp.wav';
+const kittyPeekUrl = 'assets/kitty-peek.png';
+const kittyWalkUrl = 'assets/kitty-walk.gif';
+const kittyJumpUrl = 'assets/kitty-jump.png';
+const cloudGifUrl = 'assets/cloud.gif';
+const fireworkGifUrl = 'assets/firework.gif';
+const bubbleGifUrl = 'assets/bubble.gif';
+
 const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
 const result = document.getElementById('result');
@@ -39,7 +52,7 @@ window.addEventListener('load', () => {
 });
 
 // Background music - shuffle on each reload
-const songs = ['assets/song1.mp3', 'assets/song2.mp3'];
+const songs = [song1Url, song2Url];
 for (let i = songs.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * (i + 1));
   [songs[i], songs[j]] = [songs[j], songs[i]];
@@ -128,7 +141,7 @@ function peekKitty() {
 function resetKittyPeek() {
   // Recreate the kitty peek element
   const newKitty = document.createElement('img');
-  newKitty.src = 'assets/kitty-peek.png';
+  newKitty.src = kittyPeekUrl;
   newKitty.className = 'kitty-peek left';
   newKitty.id = 'kittyPeek';
   document.body.appendChild(newKitty);
@@ -203,11 +216,11 @@ function handleKittyClick(e) {
 kittyPeek.addEventListener('click', handleKittyClick);
 
 // Sound effects
-const walkSound = new Audio('assets/walk.wav');
+const walkSound = new Audio(walkSoundUrl);
 walkSound.volume = 0.5;
 walkSound.loop = true;
 
-const stompSound = new Audio('assets/stomp.wav');
+const stompSound = new Audio(stompSoundUrl);
 stompSound.volume = 0.6;
 
 function playWalk() {
@@ -257,7 +270,7 @@ function fadeBgmIn() {
 // Bubble animation
 function spawnBubble() {
   const bubble = document.createElement('img');
-  bubble.src = 'assets/bubble.gif';
+  bubble.src = bubbleGifUrl;
   bubble.style.position = 'fixed';
   bubble.style.width = '60px';
   bubble.style.height = '60px';
@@ -281,7 +294,7 @@ function takeButtonAway() {
 
   // Create Hello Kitty - position exactly above No button (touching)
   const kitty = document.createElement('img');
-  kitty.src = 'assets/kitty-walk.gif';
+  kitty.src = kittyWalkUrl;
   kitty.style.position = 'fixed';
   kitty.style.width = '80px';
   kitty.style.top = (noBtnY - 80) + 'px';
@@ -308,7 +321,7 @@ function takeButtonAway() {
   function pauseThenJump() {
     // Switch to jump image and pause for 0.4 seconds
     const jumpKitty = document.createElement('img');
-    jumpKitty.src = 'assets/kitty-jump.png';
+    jumpKitty.src = kittyJumpUrl;
     jumpKitty.style.position = 'fixed';
     jumpKitty.style.width = '80px';
     jumpKitty.style.top = kitty.style.top;
@@ -425,7 +438,7 @@ yesBtn.addEventListener('mouseleave', () => {
 });
 
 // Victory song
-const yesSong = new Audio('assets/yes-song.mp3');
+const yesSong = new Audio(yesSongUrl);
 yesSong.volume = 0;
 
 // Yes button click
@@ -441,6 +454,11 @@ yesBtn.addEventListener('click', function() {
   result.innerHTML = '<div class="celebration">Yay!! ♥♥♥</div>';
   noBtn.style.display = 'none';
   yesBtn.style.display = 'none';
+
+  // Stop peeking kitty
+  if (peekInterval) clearInterval(peekInterval);
+  if (peekTimeout) clearTimeout(peekTimeout);
+  if (kittyPeek) kittyPeek.remove();
 
   // Fade out BGM, fade in victory song
   fadeBgmOut();
@@ -496,7 +514,7 @@ function spawnFireworks() {
 
 function spawnFirework(index, sectionWidth) {
   const firework = document.createElement('img');
-  firework.src = 'assets/firework.gif';
+  firework.src = fireworkGifUrl;
   firework.className = 'firework';
 
   // Random size between 150px and 250px
@@ -528,7 +546,7 @@ window.addEventListener('load', () => {
 
 function spawnCloud(index, sectionWidth) {
   const cloud = document.createElement('img');
-  cloud.src = 'assets/cloud.gif';
+  cloud.src = cloudGifUrl;
   cloud.className = 'cloud';
 
   // Random size between 120px and 280px
