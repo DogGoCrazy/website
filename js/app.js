@@ -149,12 +149,19 @@ function resetKittyPeek() {
   newKitty.src = kittyPeekUrl;
   newKitty.className = 'kitty-peek left';
   newKitty.id = 'kittyPeek';
+  // Set initial position off-screen (CSS only sets left, not top)
+  newKitty.style.top = '50%';
   document.body.appendChild(newKitty);
   kittyPeek = newKitty;
   kittyFallen = false;
 
   // Re-attach click listener
   kittyPeek.addEventListener('click', handleKittyClick);
+
+  // Trigger a new peek after a short delay
+  setTimeout(() => {
+    if (!kittyFallen) peekKitty();
+  }, 1000);
 }
 
 function handleKittyClick(e) {
