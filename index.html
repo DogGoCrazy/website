@@ -1,51 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Website</title>
+  <title>Study Guide</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="#">MySite</a>
-      <nav class="nav">
-        <button id="themeToggle" class="btn">Toggle Theme</button>
-      </nav>
-    </div>
-  </header>
+  <!-- Fake study guide overlay -->
+  <div id="studyOverlay" class="study-overlay">
+    <div class="study-container">
+      <h1>POL109 Study Guide</h1>
+      <h2>Introduction to Political Science</h2>
+      <p class="subtitle">Midterm Review - Spring 2026</p>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Simple Static Site Scaffold</h1>
-        <p>Starter HTML, CSS and JS to build on.</p>
-        <a class="btn primary" href="#features">Explore</a>
+      <div class="study-section">
+        <h3>Chapter 1: Foundations of Government</h3>
+        <ul>
+          <li>Social Contract Theory (Hobbes, Locke, Rousseau)</li>
+          <li>Types of Government Systems</li>
+          <li>Separation of Powers</li>
+        </ul>
       </div>
-    </section>
 
-    <section id="features" class="features container">
-      <article class="card">
-        <h3>Responsive</h3>
-        <p>Mobile-first layout and simple grid.</p>
-      </article>
-      <article class="card">
-        <h3>Accessible</h3>
-        <p>Semantic markup and readable styles.</p>
-      </article>
-      <article class="card">
-        <h3>Extendable</h3>
-        <p>Easy to add frameworks or tooling later.</p>
-      </article>
-    </section>
-  </main>
+      <div class="study-section">
+        <h3>Chapter 2: Political Ideologies</h3>
+        <ul>
+          <li>Liberalism vs Conservatism</li>
+          <li>Socialism and Marxism</li>
+          <li>Nationalism and Populism</li>
+        </ul>
+      </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> MySite — Built with a small scaffold.</p>
+      <div class="study-section">
+        <h3>Chapter 3: Democratic Processes</h3>
+        <ul>
+          <li>Electoral Systems</li>
+          <li>Voter Behavior</li>
+          <li>Political Participation</li>
+        </ul>
+      </div>
+
+      <p class="click-hint">Click anywhere to continue...</p>
     </div>
-  </footer>
+  </div>
+
+  <div class="container">
+    <div class="hearts">
+      <span class="heart">♥</span>
+      <span class="heart">♥</span>
+      <span class="heart">♥</span>
+      <span class="heart">♥</span>
+      <span class="heart">♥</span>
+    </div>
+
+    <h1>Will you be my Valentine, Naomi?</h1>
+
+    <div class="buttons">
+      <button id="yesBtn" class="btn yes">Yes</button>
+      <button id="noBtn" class="btn no">No</button>
+    </div>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <!-- Peeking Hello Kitty -->
+  <img src="assets/kitty-peek.png" class="kitty-peek left" id="kittyPeek" alt="">
+
+  <!-- House bottom left -->
+  <img src="assets/house.png" class="house" alt="">
+
+  <!-- Flowers along bottom -->
+  <div class="flowers-container">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+    <img src="assets/flowers.png" class="flowers" alt="">
+  </div>
+
+  <!-- Sonny Angels at bottom -->
+  <div class="sonny-container">
+    <img src="assets/sonny_angel_top_1.png" class="sonny" alt="">
+    <img src="assets/sonny_angel_top_2.png" class="sonny" alt="">
+    <img src="assets/sonny_angel_top_3.png" class="sonny" alt="">
+    <img src="assets/sonny_angel_top_4.png" class="sonny" alt="">
+    <img src="assets/sonny_angel_top_5.png" class="sonny" alt="">
+    <img src="assets/sonny_angel_top_6.png" class="sonny" alt="">
+    <img src="assets/sonny_angel_top_1.png" class="sonny" alt="">
+    <img src="assets/sonny_angel_top_2.png" class="sonny" alt="">
+  </div>
 
   <script src="js/app.js"></script>
 </body>
