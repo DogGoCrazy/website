@@ -4,3 +4,4 @@ import '../js/app.js';
 
 // small runtime check
 console.log('Vite: main.js loaded');
+

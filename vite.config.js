@@ -1,9 +1,10 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  // default Vite config — root is project root
+  base: "/website/",   // 👈 ADD THIS LINE
+
   server: {
     port: 5173,
-    strictPort: false
-  }
-})
+    strictPort: false,
+  },
+});
