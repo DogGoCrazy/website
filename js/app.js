@@ -71,11 +71,48 @@ bgMusic.addEventListener('ended', () => {
   setTimeout(playNextSong, 1500);
 });
 
+// Confetti burst effect
+function spawnConfetti() {
+  const colors = ['#ff4d6d', '#ff8fa3', '#ffb3c1', '#ffccd5', '#fff0f3', '#c9184a', '#ff85a1'];
+  const confettiCount = 80;
+
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.style.position = 'fixed';
+    confetti.style.width = (6 + Math.random() * 8) + 'px';
+    confetti.style.height = (6 + Math.random() * 8) + 'px';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.top = '-20px';
+    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    confetti.style.zIndex = '10000';
+    confetti.style.pointerEvents = 'none';
+    document.body.appendChild(confetti);
+
+    // Animate falling
+    const startX = parseFloat(confetti.style.left);
+    const drift = (Math.random() - 0.5) * 200;
+    const duration = 2000 + Math.random() * 2000;
+    const delay = Math.random() * 500;
+    const rotation = Math.random() * 720 - 360;
+
+    setTimeout(() => {
+      confetti.style.transition = `all ${duration}ms ease-out`;
+      confetti.style.transform = `translateX(${drift}px) rotate(${rotation}deg)`;
+      confetti.style.top = '110vh';
+      confetti.style.opacity = '0';
+
+      setTimeout(() => confetti.remove(), duration);
+    }, delay);
+  }
+}
+
 // Study guide overlay - click to reveal Valentine's page
 const studyOverlay = document.getElementById('studyOverlay');
 studyOverlay.addEventListener('click', () => {
   studyOverlay.classList.add('hidden');
-  bgMusic.play();
+  bgMusic.play().catch(() => {});
+  spawnConfetti();
   startPeekingKitty();
 });
 
