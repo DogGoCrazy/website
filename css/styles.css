@@ -308,3 +308,29 @@ h1 {
 .kitty-peek.top.peek {
   top: -30px;
 }
+
+/* Exit button for victory screen */
+.exit-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 3px solid #c9184a;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #c9184a;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.exit-btn:hover {
+  transform: scale(1.1);
+  background: #fff;
+}

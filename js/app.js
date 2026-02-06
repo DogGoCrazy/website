@@ -512,6 +512,15 @@ yesBtn.addEventListener('click', function() {
 
   // Spawn fireworks
   spawnFireworks();
+
+  // Create exit button
+  const exitBtn = document.createElement('button');
+  exitBtn.className = 'exit-btn';
+  exitBtn.innerHTML = '←';
+  exitBtn.title = 'Return to main screen';
+  document.body.appendChild(exitBtn);
+
+  exitBtn.addEventListener('click', exitVictoryScreen);
 });
 
 function spawnFireworks() {
@@ -575,4 +584,56 @@ function spawnCloud(index, sectionWidth) {
   // Random delay to offset GIF animation cycles
   const delay = Math.random() * 2000;
   setTimeout(() => document.body.appendChild(cloud), delay);
+}
+
+// Exit victory screen and return to main
+function exitVictoryScreen() {
+  // Remove exit button
+  const exitBtn = document.querySelector('.exit-btn');
+  if (exitBtn) exitBtn.remove();
+
+  // Clear celebration message
+  result.innerHTML = '';
+
+  // Show buttons again
+  yesBtn.style.display = '';
+  noBtn.style.display = '';
+
+  // Remove all fireworks
+  document.querySelectorAll('.firework').forEach(fw => fw.remove());
+
+  // Hide sonny angels and stop their animations
+  const sonnyContainer = document.querySelector('.sonny-container');
+  sonnyContainer.classList.remove('visible');
+  document.querySelectorAll('.sonny').forEach(sonny => {
+    sonny.style.animation = '';
+  });
+
+  // Bring clouds back
+  document.querySelectorAll('.cloud').forEach(cloud => {
+    cloud.classList.remove('exit-left', 'exit-right');
+  });
+
+  // Fade out victory song, fade in BGM
+  let yesSongFadeOut = setInterval(() => {
+    if (yesSong.volume > 0.02) {
+      yesSong.volume -= 0.02;
+    } else {
+      yesSong.volume = 0;
+      yesSong.pause();
+      yesSong.currentTime = 0;
+      clearInterval(yesSongFadeOut);
+    }
+  }, 50);
+  fadeBgmIn();
+
+  // Restart peeking kitty
+  kittyFallen = false;
+  resetKittyPeek();
+  if (peekInterval) clearInterval(peekInterval);
+  peekInterval = setInterval(() => {
+    if (!kittyBusy && !kittyFallen) {
+      peekKitty();
+    }
+  }, 4000 + Math.random() * 3000);
 }
