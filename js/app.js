@@ -110,6 +110,11 @@ function peekKitty() {
   kittyPeek.style.transition = 'none';
   kittyPeek.className = 'kitty-peek ' + currentPeekSide;
 
+  // Clear previous inline position styles before setting new ones
+  kittyPeek.style.top = '';
+  kittyPeek.style.left = '';
+  kittyPeek.style.right = '';
+
   // Random position along the side
   if (currentPeekSide === 'left' || currentPeekSide === 'right') {
     // Random vertical position (10% to 70% of screen height)
